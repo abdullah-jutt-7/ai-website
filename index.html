@@ -466,7 +466,7 @@
           Download the installer now and experience the power of AI
           conversations.
         </p>
-        <a href="#" class="btn">Download Now</a>
+        <a href="https://drive.google.com/uc?export=download&id=17ia8Gpv8A_1gn7ViMpaIBcZuyS2Jt0Oh" class="btn" download>Download Now</a>
         <p class="download-info">Version 1.0.0 | File Size: 2.3 GB</p>
       </div>
     </section>
@@ -542,12 +542,14 @@
           });
         }
 
-        // Smooth scroll for navigation links
+        // Smooth scroll for navigation links (skip external/download links)
         document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
           anchor.addEventListener("click", function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute("href"));
+            const href = this.getAttribute("href");
+            if (href === "#" || !href.startsWith("#")) return;
+            const target = document.querySelector(href);
             if (target) {
+              e.preventDefault();
               target.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
